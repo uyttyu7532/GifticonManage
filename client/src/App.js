@@ -21,29 +21,24 @@ const styles = theme => ({
 })
 
 
-const gifticons = [{
-  'id' : 1,
-  'name' : '스타벅스',
-  'exp_date' : '20200820',
-  'used' : 'false',
-  'barcode_img' : 'https://placeimg.com/64/64/animals/1'
-},
-{
-  'id' : 2,
-  'name' : '할리스',
-  'exp_date' : '20200819',
-  'used' : 'true',
-  'barcode_img' : 'https://placeimg.com/64/64/animals/2'
-},
-{
-  'id' : 3,
-  'name' : '커피빈',
-  'exp_date' : '20200818',
-  'used' : 'true',
-  'barcode_img' : 'https://placeimg.com/64/64/animals/3'
-}]
-
 class App extends Component {
+
+  state = {
+    customers: ""
+  }
+
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({gifticons: res}))
+      .catch(err => console.log(err))
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/gifticons');
+    const body = await response.json();
+    return body;
+  }
+
   render() {
       const { classes } = this.props;
       return (
@@ -59,8 +54,8 @@ class App extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-            {
-            gifticons.map(g => {
+            {this.state.gifticons ? 
+            this.state.gifticons.map(g => {
               return(
                 <Gifticon
                 key = {g.id}
@@ -72,7 +67,7 @@ class App extends Component {
               />
               );
           })
-        }
+        :""}
           </TableBody>
         </Table>
       </Paper>
