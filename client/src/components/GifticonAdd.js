@@ -19,8 +19,12 @@ class GifticonAdd extends React.Component {
     handleFormSubmit = (e) => {
         e.preventDefault() // 오류가 발생하지 않도록
         this.addGifticon()
-            .then((response) => {
+        // 고객을 추가 후 서버로부터 응답받고나서 실행
+            .then((response) => { 
                 console.log(response.data);
+                // App.js의 stateRefresg()호출해서
+                // 부모 컴포넌트(App)의 state값 갱신 시켜준다.
+                this.props.stateRefresh();
             })
         this.setState({
             barcode_img: null,
@@ -29,7 +33,7 @@ class GifticonAdd extends React.Component {
             used: '',
             fileName: ''
         })
-        window.location.reload();
+        
     }
 
     // 파일 값이 변경됐을 때

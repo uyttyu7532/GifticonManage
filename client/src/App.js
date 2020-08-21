@@ -29,16 +29,30 @@ const styles = theme => ({
 
 class App extends Component {
 
-  state = {
-    customers: "",
-    completed: 0
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      gifticons: '',
+      completed: 0
+    }
+  }
+
+  // state 초기화
+  stateRefresh = () => {
+    this.setState({
+      gifticons: '',
+      completed: 0
+    });
+    this.callApi() // 고객 데이터 불러오기
+      .then(res => this.setState({gifticons: res})) // 받아서 state로 설정 (서버에서 받은 res가  gifticons가 됨)
+      .catch(err => console.log(err));
+  }
 
   componentDidMount() {
     this.timer = setInterval(this.progress, 20);
     this.callApi()
       .then(res => this.setState({gifticons: res})) // 받아서 state로 설정 (서버에서 받은 res가  gifticons가 됨)
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   callApi = async () => {
@@ -90,7 +104,7 @@ class App extends Component {
             </TableBody>
           </Table>
         </Paper>
-        <GifticonAdd/>
+        <GifticonAdd stateRefresh={this.stateRefresh}/>
       </div>
     );
   }
