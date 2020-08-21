@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import './App.css';
 import Gifticon from './components/Gifticon';
+import GifticonAdd from './components/GifticonAdd';
 import Table from "@material-ui/core/Table";
 import Paper from "@material-ui/core/Paper";
 import TableHead from "@material-ui/core/TableHead";
@@ -54,40 +55,43 @@ class App extends Component {
   render() {
       const { classes } = this.props;
       return (
-        <Paper className={classes.root}>
-          <Table className={classes.table}>
-            <TableHead>
-              <TableRow>
-                <TableCell>번호</TableCell>
-                <TableCell>기프티콘 사진</TableCell>
-                <TableCell>제목</TableCell>
-                <TableCell>유효기간</TableCell>
-                <TableCell>사용 여부</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-            {this.state.gifticons ? 
-            this.state.gifticons.map(g => {
-              return(
-                <Gifticon
-                key = {g.id}
-                id = {g.id}
-                barcode_img = {g.barcode_img}
-                name = {g.name}
-                exp_date = {g.exp_date}
-                used = {g.used}
-              />
-              );
-          }):
-          <TableRow>
-            <TableCell colSpan="6" align="center">
-              <CircularProgress className={classes.progress} variant="determinate" value={this.state.completed}/>
-            </TableCell>
-          </TableRow>
-        }
-          </TableBody>
-        </Table>
-      </Paper>
+        <div>
+          <Paper className={classes.root}>
+            <Table className={classes.table}>
+              <TableHead>
+                <TableRow>
+                  <TableCell>번호</TableCell>
+                  <TableCell>기프티콘 사진</TableCell>
+                  <TableCell>제목</TableCell>
+                  <TableCell>유효기간</TableCell>
+                  <TableCell>사용 여부</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+              {this.state.gifticons ? 
+              this.state.gifticons.map(g => {
+                return(
+                  <Gifticon
+                  key = {g.id}
+                  id = {g.id}
+                  barcode_img = {g.barcode_img}
+                  name = {g.name}
+                  exp_date = {g.exp_date}
+                  used = {g.used}
+                />
+                );
+            }):
+            <TableRow>
+              <TableCell colSpan="6" align="center">
+                <CircularProgress className={classes.progress} variant="determinate" value={this.state.completed}/>
+              </TableCell>
+            </TableRow>
+          }
+            </TableBody>
+          </Table>
+        </Paper>
+        <GifticonAdd/>
+      </div>
     );
   }
 }
