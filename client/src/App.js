@@ -23,7 +23,8 @@ import SearchIcon from '@material-ui/icons/Search';
 const styles = theme => ({
   root: {
     width: '100%',
-    minWidth: 1080
+    // minWidth: 1080
+
   },
   menu: {
     marginTop: 15,
@@ -71,7 +72,7 @@ const styles = theme => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inherit',
+    color: 'inherit'
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -157,7 +158,7 @@ class App extends Component {
       });
     }
     const { classes } = this.props;
-    const cellList = ["번호", "기프티콘 사진", "제목", "유효기간", "사용 여부", "설정"];
+    const cellList = ["사진", "제목", "유효기간", "사용여부", "설정"];
     return (
       <div className={classes.root}>
         <AppBar position="static">
