@@ -5,12 +5,12 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { DialogActions } from '@material-ui/core';
 
 const styles = theme => ({
     hidden: {
-        display : 'none'
+        display: 'none'
     }
 });
 
@@ -33,8 +33,8 @@ class GifticonAdd extends React.Component {
     handleFormSubmit = (e) => {
         e.preventDefault() // 오류가 발생하지 않도록
         this.addGifticon()
-        // 고객을 추가 후 서버로부터 응답받고나서 실행
-            .then((response) => { 
+            // 고객을 추가 후 서버로부터 응답받고나서 실행
+            .then((response) => {
                 console.log(response.data);
                 // App.js의 stateRefresg()호출해서
                 // 부모 컴포넌트(App)의 state값 갱신 시켜준다.
@@ -48,7 +48,7 @@ class GifticonAdd extends React.Component {
             fileName: '',
             open: false
         })
-        
+
     }
 
     // 파일 값이 변경됐을 때
@@ -70,26 +70,26 @@ class GifticonAdd extends React.Component {
         const url = '/api/gifticons';
         // 특정한 데이터를 서버로 보내기 위해
         const formData = new FormData();
-        formData.append('barcode_img',this.state.barcode_img);
-        formData.append('name',this.state.name);
-        formData.append('exp_date',this.state.exp_date);
-        formData.append('used',this.state.used);
+        formData.append('barcode_img', this.state.barcode_img);
+        formData.append('name', this.state.name);
+        formData.append('exp_date', this.state.exp_date);
+        formData.append('used', this.state.used);
         // 파일이 포함된 데이터를 서버로 전송 => header추가 
         const config = {
             headers: {
-                'content-type' : 'multipart/form-data'
+                'content-type': 'multipart/form-data'
             }
         }
         return post(url, formData, config);
     }
 
-    handleClickOpen=()=> {
+    handleClickOpen = () => {
         this.setState({
             open: true
         })
     }
 
-    handleClose=()=>{
+    handleClose = () => {
         this.setState({
             barcode_img: null,
             name: '',
@@ -97,11 +97,11 @@ class GifticonAdd extends React.Component {
             used: '',
             fileName: '',
             open: false // 다이얼로그가 열려 있는 지
-        }) 
+        })
     }
 
-    render(){
-        const {classes} = this.props;
+    render() {
+        const { classes } = this.props;
         return (
             <div>
                 <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
@@ -110,16 +110,16 @@ class GifticonAdd extends React.Component {
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle>기프티콘 추가</DialogTitle>
                     <DialogContent>
-                        <input className={classes.hidden} type="file" accept="image/*" id="raised-button-file" file={this.state.barcode_img} value={this.state.fileName} onChange={this.handleFileChange}/>
+                        <input className={classes.hidden} type="file" accept="image/*" id="raised-button-file" file={this.state.barcode_img} value={this.state.fileName} onChange={this.handleFileChange} />
                         <label htmlFor="raised-button-file">
                             <Button variant="contained" color="primary" component="span" name="file">
-                                {this.state.fileName === ""? "기프티콘 이미지 선택" : this.state.fileName}
+                                {this.state.fileName === "" ? "기프티콘 이미지 선택" : this.state.fileName}
                             </Button>
                         </label>
-                        <br/>
-                        <TextField label="이름" type="text" name="name" value={this.state.name} onChange={this.handleValueChange}/><br/>
-                        <TextField label="유효기한" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange}/><br/>
-                        <TextField label="사용여부" type="text" name="used" value={this.state.used} onChange={this.handleValueChange}/><br/>
+                        <br />
+                        <TextField label="이름" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
+                        <TextField label="유효기한" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange} /><br />
+                        <TextField label="사용여부" type="text" name="used" value={this.state.used} onChange={this.handleValueChange} /><br />
                     </DialogContent>
                     <DialogActions>
                         <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>

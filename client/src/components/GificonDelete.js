@@ -8,27 +8,27 @@ import Typography from '@material-ui/core/Typography';
 
 
 class GifticonDelete extends React.Component {
-    
-    constructor(props){
+
+    constructor(props) {
         super(props);
         this.state = {
             open: false
         }
     }
 
-    handleClickOpen=()=> {
+    handleClickOpen = () => {
         this.setState({
             open: true
         })
     }
 
-    handleClose=()=>{
+    handleClose = () => {
         this.setState({
             open: false
-        }) 
+        })
     }
 
-    deleteGifticon(id){
+    deleteGifticon(id) {
         const url = '/api/gifticons/' + id;
         fetch(url, {
             method: 'DELETE'
@@ -49,12 +49,12 @@ class GifticonDelete extends React.Component {
                         </Typography>
                     </DialogContent>
                     <DialogActions>
-                        <Button variant = "contained" color="secondary" onClick={(e)=>{this.deleteGifticon(this.props.id)}}>네</Button>
-                        <Button variant = "outlined" color="secondary" onClick={this.handleClose}>닫기</Button>
+                        <Button variant="contained" color="secondary" onClick={(e) => { this.deleteGifticon(this.props.id) }}>네</Button>
+                        <Button variant="outlined" color="secondary" onClick={this.handleClose}>닫기</Button>
                     </DialogActions>
                 </Dialog>
             </div>
-            )
+        )
     }
 }
 
