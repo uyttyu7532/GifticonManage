@@ -17,9 +17,9 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     overflowX: "auto"
   },
-  table:{
-    minWidth: 1080
-  },
+  // table:{
+  //   minWidth: 1080
+  // },
   progress:{
     margin: theme.spacing.unit * 2
   }
@@ -79,6 +79,7 @@ class App extends Component {
                   <TableCell>제목</TableCell>
                   <TableCell>유효기간</TableCell>
                   <TableCell>사용 여부</TableCell>
+                  <TableCell>설정</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -86,6 +87,7 @@ class App extends Component {
               this.state.gifticons.map(g => {
                 return(
                   <Gifticon
+                  stateRefresh = {this.stateRefresh}
                   key = {g.id}
                   id = {g.id}
                   barcode_img = {g.barcode_img}

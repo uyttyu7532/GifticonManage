@@ -27,7 +27,7 @@ const upload = multer({dest: './upload'})
 
 app.get('/api/gifticons', (req, res) => {
     connection.query(
-      "SELECT * FROM GIFTICON",
+      "SELECT * FROM GIFTICON WHERE isDeleted = 0 ORDER BY exp_date",
       (err, rows, fields) => {
         res.send(rows);
       }
@@ -36,7 +36,7 @@ app.get('/api/gifticons', (req, res) => {
 
 app.use('/barcode_img',express.static('./upload'));
 app.post('/api/gifticons', upload.single('barcode_img'), (req, res)=> {
-  let sql = 'INSERT INTO GIFTICON VALUES (null, ?, ?, ?, ?)';
+  let sql = 'INSERT INTO GIFTICON VALUES (null, ?, ?, ?, ?, now(), 0, null)';
   let barcode_img = '/barcode_img/' + req.file.filename;
   let name = req.body.name;
   let exp_date = req.body.exp_date;
@@ -53,6 +53,19 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res)=> {
         console.log(rows);
       }
     );
+});
+
+app.delete('/api/gifticons/:id', (req, res) => {
+  let sql = 'UPDATE GIFTICON SET isDeleted = 1 WHERE id = ?';
+  let params = [req.params.id];
+  // console.log(req);
+  // console.log(res);
+  connection.query(sql, params,
+      (err, rows, fields)=>{
+        res.send(rows);
+        // console.log(rows);
+      }
+    )
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
