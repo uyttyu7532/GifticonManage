@@ -23,15 +23,15 @@ import SearchIcon from '@material-ui/icons/Search';
 const styles = theme => ({
   root: {
     width: '100%',
-    minWidth:1080
+    minWidth: 1080
   },
-  menu:{
+  menu: {
     marginTop: 15,
     marginBottom: 15,
     display: 'flex',
     justifyContent: 'center'
   },
-  TableHead:{
+  TableHead: {
     fontSize: '1.0rem'
   },
   progress: {
@@ -98,7 +98,8 @@ class App extends Component {
     super(props);
     this.state = {
       gifticons: '',
-      completed: 0
+      completed: 0,
+      searchKeyword:""
     }
   }
 
@@ -106,7 +107,8 @@ class App extends Component {
   stateRefresh = () => {
     this.setState({
       gifticons: '',
-      completed: 0
+      completed: 0,
+      searchKeyword:""
     });
     this.callApi() // 고객 데이터 불러오기
       .then(res => this.setState({ gifticons: res })) // 받아서 state로 설정 (서버에서 받은 res가  gifticons가 됨)
@@ -131,7 +133,29 @@ class App extends Component {
     this.setState({ completed: completed >= 100 ? 0 : completed + 1 })
   }
 
+  handleValueChange = (e) => {
+    let nextState = {};
+    nextState[e.target.name] = e.target.value;
+    this.setState(nextState);
+  }
+
   render() {
+    const filteredComponenets = (data) => {
+      data = data.filter((g) => {
+        return g.name.indexOf(this.state.searchKeyword) > -1;
+      });
+      return data.map((g)=>{
+            return <Gifticon
+              stateRefresh={this.stateRefresh}
+              key={g.id}
+              id={g.id}
+              barcode_img={g.barcode_img}
+              name={g.name}
+              exp_date={g.exp_date}
+              used={g.used}
+            />
+      });
+    }
     const { classes } = this.props;
     const cellList = ["번호", "기프티콘 사진", "제목", "유효기간", "사용 여부", "설정"];
     return (
@@ -159,13 +183,16 @@ class App extends Component {
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
+                name="searchKeyword"
+                value={this.state.searchKeyword}
+                onChange={this.handleValueChange}
                 inputProps={{ 'aria-label': 'search' }}
               />
             </div>
           </Toolbar>
         </AppBar>
         <div className={classes.menu}>
-        <GifticonAdd stateRefresh={this.stateRefresh} />
+          <GifticonAdd stateRefresh={this.stateRefresh} />
         </div>
         <Paper>
           <Table className={classes.table}>
@@ -178,19 +205,7 @@ class App extends Component {
             </TableHead>
             <TableBody>
               {this.state.gifticons ?
-                this.state.gifticons.map(g => {
-                  return (
-                    <Gifticon
-                      stateRefresh={this.stateRefresh}
-                      key={g.id}
-                      id={g.id}
-                      barcode_img={g.barcode_img}
-                      name={g.name}
-                      exp_date={g.exp_date}
-                      used={g.used}
-                    />
-                  );
-                }) :
+                  filteredComponenets(this.state.gifticons) :
                 <TableRow>
                   <TableCell colSpan="6" align="center">
                     <CircularProgress className={classes.progress} variant="determinate" value={this.state.completed} />
