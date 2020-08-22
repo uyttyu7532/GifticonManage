@@ -1,5 +1,18 @@
 import React from 'react';
 import { post } from 'axios'; // post방식으로 서버에 보내기 위해
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import {withStyles} from '@material-ui/core/styles';
+import { DialogActions } from '@material-ui/core';
+
+const styles = theme => ({
+    hidden: {
+        display : 'none'
+    }
+});
 
 class GifticonAdd extends React.Component {
 
@@ -10,7 +23,8 @@ class GifticonAdd extends React.Component {
             name: '',
             exp_date: '',
             used: '',
-            fileName: ''
+            fileName: '',
+            open: false // 다이얼로그가 열려 있는 지
         }
     }
 
@@ -31,7 +45,8 @@ class GifticonAdd extends React.Component {
             name: '',
             exp_date: '',
             used: '',
-            fileName: ''
+            fileName: '',
+            open: false
         })
         
     }
@@ -68,19 +83,53 @@ class GifticonAdd extends React.Component {
         return post(url, formData, config);
     }
 
+    handleClickOpen=()=> {
+        this.setState({
+            open: true
+        })
+    }
+
+    handleClose=()=>{
+        this.setState({
+            barcode_img: null,
+            name: '',
+            exp_date: '',
+            used: '',
+            fileName: '',
+            open: false // 다이얼로그가 열려 있는 지
+        }) 
+    }
+
     render(){
+        const {classes} = this.props;
         return (
-            // 추가 버튼을 누르면 handleFormSubmit() 실행
-            <form onSubmit={this.handleFormSubmit}>
-                <h1>기프티콘 추가</h1>
-                기프티콘 이미지: <input type="file" name="barcode_img" file={this.state.barcode_img} value={this.state.fileName} onChange={this.handleFileChange}/><br/>
-                이름: <input type="text" name="name" value={this.state.name} onChange={this.handleValueChange}/><br/>
-                유효기한: <input type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange}/><br/>
-                사용여부: <input type="text" name="used" value={this.state.used} onChange={this.handleValueChange}/><br/>
-                <button type="submit">추가하기</button>
-            </form>
+            <div>
+                <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
+                    추가하기
+                </Button>
+                <Dialog open={this.state.open} onClose={this.handleClose}>
+                    <DialogTitle>기프티콘 추가</DialogTitle>
+                    <DialogContent>
+                        <input className={classes.hidden} type="file" accept="image/*" id="raised-button-file" file={this.state.barcode_img} value={this.state.fileName} onChange={this.handleFileChange}/>
+                        <label htmlFor="raised-button-file">
+                            <Button variant="contained" color="primary" component="span" name="file">
+                                {this.state.fileName === ""? "기프티콘 이미지 선택" : this.state.fileName}
+                            </Button>
+                        </label>
+                        <br/>
+                        <TextField label="이름" type="text" name="name" value={this.state.name} onChange={this.handleValueChange}/><br/>
+                        <TextField label="유효기한" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange}/><br/>
+                        <TextField label="사용여부" type="text" name="used" value={this.state.used} onChange={this.handleValueChange}/><br/>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>
+                        <Button variant="outlined" color="primary" onClick={this.handleClose}>닫기</Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+
         )
     }
 }
 
-export default GifticonAdd;
+export default withStyles(styles)(GifticonAdd);

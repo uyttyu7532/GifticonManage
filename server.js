@@ -49,8 +49,6 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res)=> {
   connection.query(sql, params,
       (err, rows, fields) => {
         res.send(rows);
-        console.log(err);
-        console.log(rows);
       }
     );
 });
@@ -58,12 +56,11 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res)=> {
 app.delete('/api/gifticons/:id', (req, res) => {
   let sql = 'UPDATE GIFTICON SET isDeleted = 1 WHERE id = ?';
   let params = [req.params.id];
-  // console.log(req);
-  // console.log(res);
+
   connection.query(sql, params,
       (err, rows, fields)=>{
         res.send(rows);
-        // console.log(rows);
+
       }
     )
 });
