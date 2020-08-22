@@ -10,6 +10,15 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import {withStyles} from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import InputBase from '@material-ui/core/InputBase';
+import {fade} from '@material-ui/core/styles/colorManipulator';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+
 
 const styles = theme => ({
   root: {
@@ -68,18 +77,16 @@ class App extends Component {
 
   render() {
       const { classes } = this.props;
+      const cellList = ["번호", "기프티콘 사진", "제목", "유효기간", "사용 여부", "설정"];
       return (
-        <div>
-          <Paper className={classes.root}>
+        <div className={classes.root}>
+          <Paper>
             <Table className={classes.table}>
               <TableHead>
                 <TableRow>
-                  <TableCell>번호</TableCell>
-                  <TableCell>기프티콘 사진</TableCell>
-                  <TableCell>제목</TableCell>
-                  <TableCell>유효기간</TableCell>
-                  <TableCell>사용 여부</TableCell>
-                  <TableCell>설정</TableCell>
+                  {cellList.map(c=>{
+                    return <TableCell className={classes.TableHead}>{c}</TableCell>
+                  })}
                 </TableRow>
               </TableHead>
               <TableBody>

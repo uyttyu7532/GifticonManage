@@ -42,10 +42,6 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res)=> {
   let exp_date = req.body.exp_date;
   let used = req.body.used;
   let params = [barcode_img, name, exp_date, used];
-  console.log(barcode_img);
-  console.log(name);
-  console.log(exp_date);
-  console.log(used);
   connection.query(sql, params,
       (err, rows, fields) => {
         res.send(rows);
@@ -54,7 +50,7 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res)=> {
 });
 
 app.delete('/api/gifticons/:id', (req, res) => {
-  let sql = 'UPDATE GIFTICON SET isDeleted = 1 WHERE id = ?';
+  let sql = 'UPDATE GIFTICON SET isDeleted = 1, deletedDate = now() WHERE id = ?';
   let params = [req.params.id];
 
   connection.query(sql, params,

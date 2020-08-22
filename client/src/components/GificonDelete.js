@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { DialogActions } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
+
 class GifticonDelete extends React.Component {
     
     constructor(props){
@@ -39,17 +40,17 @@ class GifticonDelete extends React.Component {
     render() {
         return (
             <div>
-                <Button variant="contained" onClick={this.handleClickOpen}>삭제</Button>
+                <Button variant="contained" color="secondary" onClick={this.handleClickOpen}>사용</Button>
                 <Dialog open={this.state.open} onClose={this.handleClose}>
-                    <DialogTitle onClose={this.handleClose}>삭제 경고</DialogTitle>
+                    <DialogTitle onClose={this.handleClose}>경고</DialogTitle>
                     <DialogContent>
                         <Typography gutterBottom>
-                            선택한 사진이 삭제됩니다.
+                            정말 사용하신 기프티콘입니까?
                         </Typography>
                     </DialogContent>
                     <DialogActions>
-                        <Button variant = "contained" color="primary" onClick={(e)=>{this.deleteGifticon(this.props.id)}}>삭제</Button>
-                        <Button variant = "outlined" color="primary" onClick={this.handleClose}>닫기</Button>
+                        <Button variant = "contained" color="secondary" onClick={(e)=>{this.deleteGifticon(this.props.id)}}>네</Button>
+                        <Button variant = "outlined" color="secondary" onClick={this.handleClose}>닫기</Button>
                     </DialogActions>
                 </Dialog>
             </div>
