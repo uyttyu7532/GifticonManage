@@ -27,7 +27,7 @@ const upload = multer({ dest: './upload' })
 
 app.get('/api/gifticons', (req, res) => {
   connection.query(
-    "SELECT * FROM GIFTICON WHERE isDeleted = 0  ORDER BY CASE WHEN used IN ('미사용') THEN 0 ELSE 1 END",
+    "SELECT * FROM GIFTICON ORDER BY CASE WHEN used IN ('미사용') THEN 0 ELSE 1 END",
     (err, rows, fields) => {
       res.send(rows);
     }
@@ -41,7 +41,8 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
   let name = req.body.name;
   let exp_date = req.body.exp_date;
   let used = req.body.used;
-  let params = [barcode_img, name, exp_date, used];
+  let deletedDate = req.body.deletedDate;
+  let params = [barcode_img, name, exp_date, used, deletedDate];
   connection.query(sql, params,
     (err, rows, fields) => {
       res.send(rows);
@@ -50,7 +51,7 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
 });
 
 app.delete('/api/gifticons/:id', (req, res) => {
-  let sql = 'UPDATE GIFTICON SET used = \'사용완료\', deletedDate = now() WHERE id = ?';
+  let sql = 'UPDATE GIFTICON SET used = \'사용완료\', deletedDate = now(), isDeleted = 1 WHERE id = ?';
   let params = [req.params.id];
 
   connection.query(sql, params,

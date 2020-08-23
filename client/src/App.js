@@ -36,7 +36,7 @@ const styles = theme => ({
     fontSize: '1.0rem'
   },
   progress: {
-    margin: theme.spacing.unit * 2
+    margin: 'theme.spacing(2)'
   },
   // menuButton: {
   //   marginRight: theme.spacing(2),
