@@ -1,6 +1,6 @@
 /upload
 
-/database.json
+# /database.json
 
 /node_modules
 /.pnp
