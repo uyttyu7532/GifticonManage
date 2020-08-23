@@ -11,7 +11,7 @@
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "predeploy": "npm run dev",
         "deploy": "gh-pages -d dev",
-        "start" : "node server.js"
+        "start" : "nodemon server.js"
     },
     "dependencies": {
         "@material-ui/icons": "^4.9.1",
