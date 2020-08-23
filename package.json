@@ -2,14 +2,16 @@
     "name": "gifticon",
     "version": "1.0.0",
     "engines": {
-        "node": "12.13.0"
+        "node": "12.13.0",
+        "npm": "6.12.0"
       },
     "scripts": {
         "client": "cd client && yarn start",
         "server": "nodemon server.js",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "predeploy": "npm run dev",
-        "deploy": "gh-pages -d dev"
+        "deploy": "gh-pages -d dev",
+        "start" : "node server.js"
     },
     "dependencies": {
         "@material-ui/icons": "^4.9.1",
