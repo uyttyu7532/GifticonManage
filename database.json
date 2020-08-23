@@ -2,5 +2,6 @@
     "host": "us-cdbr-east-02.cleardb.com",
     "user": "bdd5b349e1d5bd",
     "password": "983890b2",
-    "database": "gifticon"
+    "port": "3306",
+    "database": "heroku_c13f5e0ad041a13"
 }
