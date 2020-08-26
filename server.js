@@ -28,6 +28,13 @@ const multer = require('multer');
 // 사용자의 파일이 업로드 되는 폴더
 const upload = multer({ dest: './upload' })
 
+const http = require("http");
+ 
+/* Prevent Sleep in Heroku Server */
+setInterval(function () {
+  http.get("https://gifticon-management.herokuapp.com");
+}, 600000); // every 10 minutes
+
 app.get('/api/gifticons', (req, res) => {
   connection.query(
     "SELECT * FROM GIFTICON ORDER BY CASE WHEN used IN ('미사용') THEN 0 ELSE 1 END",
