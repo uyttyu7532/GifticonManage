@@ -28,7 +28,7 @@ const multer = require('multer');
 // 사용자의 파일이 업로드 되는 폴더
 const upload = multer({ dest: './upload' })
 
-app.get('https://gifticon-management.herokuapp.com/api/gifticons', (req, res) => {
+app.get('/api/gifticons', (req, res) => {
   connection.query(
     "SELECT * FROM GIFTICON ORDER BY CASE WHEN used IN ('미사용') THEN 0 ELSE 1 END",
     (err, rows, fields) => {
@@ -38,7 +38,7 @@ app.get('https://gifticon-management.herokuapp.com/api/gifticons', (req, res) =>
 });
 
 app.use('/barcode_img', express.static('./upload'));
-app.post('https://gifticon-management.herokuapp.com/api/gifticons', upload.single('barcode_img'), (req, res) => {
+app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
   let sql = 'INSERT INTO GIFTICON VALUES (null, ?, ?, ?, \'미사용\', now(), 0, null)';
   let barcode_img = '/barcode_img/' + req.file.filename;
   let name = req.body.name;
@@ -53,7 +53,7 @@ app.post('https://gifticon-management.herokuapp.com/api/gifticons', upload.singl
   );
 });
 
-app.delete('https://gifticon-management.herokuapp.com/api/gifticons:id', (req, res) => {
+app.delete('/api/gifticons:id', (req, res) => {
   let sql = 'UPDATE GIFTICON SET used = \'사용완료\', deletedDate = now(), isDeleted = 1 WHERE id = ?';
   let params = [req.params.id];
 
