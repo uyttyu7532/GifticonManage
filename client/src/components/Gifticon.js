@@ -8,7 +8,7 @@ class Gifticon extends React.Component {
         return (
             <TableRow>
                 {/* <TableCell>{this.props.id}</TableCell> */}
-                <TableCell><img src={this.props.barcode_img} alt="barcode_img" style={{ width: 64, height: 64 }}></img></TableCell>
+                <TableCell><img src={`https://gifticon-management.herokuapp.com${this.props.barcode_img}`} alt="barcode_img" style={{ width: 64, height: 64 }}></img></TableCell>
                 <TableCell>{this.props.name}</TableCell>
                 <TableCell>{this.props.exp_date}</TableCell>
                 <TableCell>{this.props.used}</TableCell>

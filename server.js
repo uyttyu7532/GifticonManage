@@ -40,7 +40,7 @@ app.get('/api/gifticons', (req, res) => {
 app.use('/barcode_img', express.static('./upload'));
 app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
   let sql = 'INSERT INTO GIFTICON VALUES (null, ?, ?, ?, \'미사용\', now(), 0, null)';
-  let barcode_img = 'https://gifticon-management.herokuapp.com/barcode_img/' + req.file.filename;
+  let barcode_img = '/barcode_img/' + req.file.filename;
   let name = req.body.name;
   let exp_date = req.body.exp_date;
   let used = req.body.used;
