@@ -67,7 +67,7 @@ class GifticonAdd extends React.Component {
     }
 
     addGifticon = () => {
-        const url = '/api/gifticons';
+        const url = 'https://gifticon-management.herokuapp.com/api/gifticons';
         // 특정한 데이터를 서버로 보내기 위해
         const formData = new FormData();
         formData.append('barcode_img', this.state.barcode_img);

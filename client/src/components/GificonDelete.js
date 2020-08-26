@@ -29,7 +29,7 @@ class GifticonDelete extends React.Component {
     }
 
     deleteGifticon(id) {
-        const url = '/api/gifticons/' + id;
+        const url = 'https://gifticon-management.herokuapp.com/api/gifticons' + id;
         fetch(url, {
             method: 'DELETE'
         });
