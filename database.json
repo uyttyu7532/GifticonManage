@@ -1,7 +1,7 @@
 {
-    "host": "us-cdbr-east-02.cleardb.com",
-    "user": "bdd5b349e1d5bd",
-    "password": "983890b2",
+    "host": "gifticon-management.cb1odj9dftoq.ap-northeast-2.rds.amazonaws.com",
+    "user": "user",
+    "password": "a10231b20330",
     "port": "3306",
-    "database": "heroku_c13f5e0ad041a13"
+    "database": "gifticon"
 }
