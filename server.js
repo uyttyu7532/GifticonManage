@@ -1,11 +1,9 @@
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
-var herokuProxy = require('heroku-proxy');
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 
-app.use(herokuProxy());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
