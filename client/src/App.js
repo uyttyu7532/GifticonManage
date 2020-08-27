@@ -124,7 +124,7 @@ class App extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch('https://ec2-3-34-44-135.ap-northeast-2.compute.amazonaws.com/api/gifticons'); // 접속하고자 하는 api주소
+    const response = await fetch('http://ec2-3-34-44-135.ap-northeast-2.compute.amazonaws.com/api/gifticons'); // 접속하고자 하는 api주소
     const body = await response.json(); // 목록이 json 형태로 출력
     return body;
   }

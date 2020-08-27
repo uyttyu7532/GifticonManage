@@ -32,7 +32,7 @@ const upload = multer({ dest: './upload' })
  
 // /* Prevent Sleep in Heroku Server */
 // setInterval(function () {
-//   http.get("http://ec2-3-34-44-135.ap-northeast-2.compute.amazonaws.com/api/gifticons");
+//   http.get("https://gifticon-management.herokuapp.com/api/gifticons");
 // }, 600000); // every 10 minutes
 
 app.get('/api/gifticons', (req, res) => {
