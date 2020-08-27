@@ -10,6 +10,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors);
 
+require('greenlock-express').init({
+  packageRoot: __dirname,
+  configDir: './greenlock.d',
+  maintainerEmail: 'uyttyu7532@naver.com',
+})
+
 const data = fs.readFileSync('./database.json');
 const conf = JSON.parse(data);
 const mysql = require('mysql');
