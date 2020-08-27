@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react_gifticon/static/css/main.ef43d5d5.chunk.css",
-    "main.js": "/react_gifticon/static/js/main.3f47f2d3.chunk.js",
-    "main.js.map": "/react_gifticon/static/js/main.3f47f2d3.chunk.js.map",
+    "main.js": "/react_gifticon/static/js/main.5e28d87e.chunk.js",
+    "main.js.map": "/react_gifticon/static/js/main.5e28d87e.chunk.js.map",
     "runtime-main.js": "/react_gifticon/static/js/runtime-main.72b1ddd2.js",
     "runtime-main.js.map": "/react_gifticon/static/js/runtime-main.72b1ddd2.js.map",
     "static/js/2.9dd6325d.chunk.js": "/react_gifticon/static/js/2.9dd6325d.chunk.js",
     "static/js/2.9dd6325d.chunk.js.map": "/react_gifticon/static/js/2.9dd6325d.chunk.js.map",
     "index.html": "/react_gifticon/index.html",
-    "precache-manifest.1c35dab22d58b161a89c72b851593788.js": "/react_gifticon/precache-manifest.1c35dab22d58b161a89c72b851593788.js",
+    "precache-manifest.9e0ed906d5a69c42ea2297081c5121fc.js": "/react_gifticon/precache-manifest.9e0ed906d5a69c42ea2297081c5121fc.js",
     "service-worker.js": "/react_gifticon/service-worker.js",
     "static/css/main.ef43d5d5.chunk.css.map": "/react_gifticon/static/css/main.ef43d5d5.chunk.css.map",
     "static/js/2.9dd6325d.chunk.js.LICENSE.txt": "/react_gifticon/static/js/2.9dd6325d.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.72b1ddd2.js",
     "static/js/2.9dd6325d.chunk.js",
     "static/css/main.ef43d5d5.chunk.css",
-    "static/js/main.3f47f2d3.chunk.js"
+    "static/js/main.5e28d87e.chunk.js"
   ]
 }
