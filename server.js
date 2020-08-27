@@ -28,12 +28,12 @@ const multer = require('multer');
 // 사용자의 파일이 업로드 되는 폴더
 const upload = multer({ dest: './upload' })
 
-const http = require("http");
+// const http = require("http");
  
-/* Prevent Sleep in Heroku Server */
-setInterval(function () {
-  http.get("https://gifticon-management.herokuapp.com/api/gifticons");
-}, 600000); // every 10 minutes
+// /* Prevent Sleep in Heroku Server */
+// setInterval(function () {
+//   http.get("http://ec2-3-34-44-135.ap-northeast-2.compute.amazonaws.com/api/gifticons");
+// }, 600000); // every 10 minutes
 
 app.get('/api/gifticons', (req, res) => {
   connection.query(
