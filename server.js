@@ -32,7 +32,7 @@ const http = require("http");
  
 /* Prevent Sleep in Heroku Server */
 setInterval(function () {
-  http.get("https://gifticon-management.herokuapp.com");
+  http.get("https://gifticon-management.herokuapp.com/api/gifticons");
 }, 600000); // every 10 minutes
 
 app.get('/api/gifticons', (req, res) => {
