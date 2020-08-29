@@ -38,10 +38,10 @@ app.get('/api/gifticons', (req, res) => {
   )
 });
 
-app.get('/.well-known/pki-validation/08994B5BF518EB9466BE56F612849BF6.txt', (req, res) => {
-  res.send(`AED329E340B265007BA08E3DF576485AB9E9FEF4FAD3D96D09A6B53082CC76C6
+app.get('/.well-known/pki-validation/9D0194CCE350BF2E257AEFBE1FA4E09A.txt', (req, res) => {
+  res.send(`0C3E244F6CB88EE1BA16B54D4669D65FF6A57660A2A6E19C70DE26E1F9ED3005
 comodoca.com
-8d3eabd0094f156`);
+16de58e63be79fa`);
 });
 
 app.use('/barcode_img', express.static('./upload'));

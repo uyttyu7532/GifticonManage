@@ -67,7 +67,7 @@ class GifticonAdd extends React.Component {
     }
 
     addGifticon = () => {
-        const url = 'https://ec2-3-34-44-135.ap-northeast-2.compute.amazonaws.com/';
+        const url = 'https://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com/api/gifticons/';
         // 특정한 데이터를 서버로 보내기 위해
         const formData = new FormData();
         formData.append('barcode_img', this.state.barcode_img);
