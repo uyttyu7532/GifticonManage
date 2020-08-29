@@ -29,7 +29,7 @@ class GifticonDelete extends React.Component {
     }
 
     deleteGifticon(id) {
-        const url = 'https://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com/api/gifticons' + id;
+        const url = 'http://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com/api/gifticons' + id;
         fetch(url, {
             method: 'DELETE'
         });
