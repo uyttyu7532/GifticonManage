@@ -49,7 +49,7 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
   let params = [barcode_img, name, exp_date];
   connection.query(sql, params,
     (err, rows, fields) => {
-      console.log(err);
+      // console.log(err);
       res.send(rows);
     }
   );

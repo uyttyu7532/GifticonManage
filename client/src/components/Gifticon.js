@@ -8,7 +8,7 @@ class Gifticon extends React.Component {
         return (
             <TableRow>
                 {/* <TableCell>{this.props.id}</TableCell> */}
-                <TableCell><img src={`http://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com/api/gifticons/${this.props.barcode_img}`} alt="barcode_img" style={{ width: 64, height: 64 }}></img></TableCell>
+                <TableCell><img src={`http://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com/${this.props.barcode_img}`} alt="barcode_img" style={{ width: 64, height: 64 }}></img></TableCell>
                 <TableCell>{this.props.name}</TableCell>
                 <TableCell>{this.props.exp_date}</TableCell>
                 <TableCell>{this.props.used}</TableCell>
