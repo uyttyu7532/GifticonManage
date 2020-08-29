@@ -37,7 +37,7 @@ app.get('/api/gifticons', (req, res) => {
   )
 });
 
-app.get('/.well-known/pki-validation/', (req, res) => {
+app.get('/.well-known/pki-validation/E3AC5211494EF1EE2C9FF89E37B82ACA.txt', (req, res) => {
   res.send(`B10E41C30E68FA1B48C0723DB7B536752D954B3AE96C52C3A6B33CD1CA731482
   comodoca.com
   91f4396b5faf85c`);
