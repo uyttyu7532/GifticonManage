@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 var cors = require('cors')();
 const app = express();
 const port = process.env.PORT || 80;
+const port2 = 443;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -79,3 +80,4 @@ app.delete('/api/gifticons:id', (req, res) => {
 //   .server(app);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port2, () => console.log(`Listening on port ${port2}`));
