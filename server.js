@@ -46,7 +46,7 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
   let exp_date = req.body.exp_date;
   let used = req.body.used;
   let deletedDate = req.body.deletedDate;
-  let params = [barcode_img, name, exp_date, used, deletedDate];
+  let params = [barcode_img, name, exp_date];
   connection.query(sql, params,
     (err, rows, fields) => {
       res.send(rows);
