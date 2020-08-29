@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 var cors = require('cors')();
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 80;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,10 +37,10 @@ app.get('/api/gifticons', (req, res) => {
   )
 });
 
-app.get('/.well-known/pki-validation/E3AC5211494EF1EE2C9FF89E37B82ACA.txt', (req, res) => {
-  res.send(`B10E41C30E68FA1B48C0723DB7B536752D954B3AE96C52C3A6B33CD1CA731482
+app.get('/.well-known/pki-validation/08994B5BF518EB9466BE56F612849BF6.txt', (req, res) => {
+  res.send(`AED329E340B265007BA08E3DF576485AB9E9FEF4FAD3D96D09A6B53082CC76C6
   comodoca.com
-  91f4396b5faf85c`);
+  8d3eabd0094f156`);
 });
 
 app.use('/barcode_img', express.static('./upload'));
