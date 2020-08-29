@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 var cors = require('cors')();
 const app = express();
 const port = process.env.PORT || 80;
-const port2 = 443;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,11 +37,6 @@ app.get('/api/gifticons', (req, res) => {
   )
 });
 
-app.get('/.well-known/pki-validation/9D0194CCE350BF2E257AEFBE1FA4E09A.txt', (req, res) => {
-  res.send(`0C3E244F6CB88EE1BA16B54D4669D65FF6A57660A2A6E19C70DE26E1F9ED3005
-comodoca.com
-16de58e63be79fa`);
-});
 
 app.use('/barcode_img', express.static('./upload'));
 app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
@@ -80,4 +74,3 @@ app.delete('/api/gifticons:id', (req, res) => {
 //   .server(app);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-app.listen(port2, () => console.log(`Listening on port ${port2}`));
