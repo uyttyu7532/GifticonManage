@@ -40,7 +40,7 @@ app.get('/api/gifticons', (req, res) => {
 
 app.use('/barcode_img', express.static('./upload'));
 app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
-  let sql = 'INSERT INTO GIFTICON VALUES (null, ?, ?, ?, \'미사용\', now(), 0, null)';
+  let sql = 'INSERT INTO GIFTICON VALUES (null, ?, ?, ?, \'미사용\', now())';
   let barcode_img = '/barcode_img/' + req.file.filename;
   let name = req.body.name;
   let exp_date = req.body.exp_date;
@@ -56,7 +56,7 @@ app.post('/api/gifticons', upload.single('barcode_img'), (req, res) => {
 });
 
 app.delete('/api/gifticons:id', (req, res) => {
-  let sql = 'UPDATE GIFTICON SET used = \'사용완료\', deletedDate = now(), isDeleted = 1 WHERE id = ?';
+  let sql = 'UPDATE GIFTICON SET used = now(), WHERE id = ?';
   let params = [req.params.id];
 
   connection.query(sql, params,
@@ -67,11 +67,5 @@ app.delete('/api/gifticons:id', (req, res) => {
   )
 });
 
-// require('greenlock-express').init({
-//   packageRoot: __dirname,
-//   configDir: './greenlock.d',
-//   maintainerEmail: 'uyttyu7532@naver.com',
-// })
-//   .server(app);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

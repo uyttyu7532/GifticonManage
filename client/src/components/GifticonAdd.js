@@ -125,9 +125,9 @@ class GifticonAdd extends React.Component {
                         </label>
                         <br />
                         <br />
-                        <TextField label="이름 (ex- 스타벅스 아메리카노)" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
+                        <TextField label="(ex- 스타벅스 아메리카노)" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
                         <br />
-                        <TextField label="유효기한 (ex- 20190421)" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange}  /><br />
+                        <TextField label="(ex- 20190421)" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange}  /><br />
                     </DialogContent>
                     <DialogActions>
                         <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>

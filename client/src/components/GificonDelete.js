@@ -40,7 +40,7 @@ class GifticonDelete extends React.Component {
     render() {
         return (
             <div>
-                <Button variant="contained" color="secondary" onClick={this.handleClickOpen}>사용</Button>
+                <Button variant="contained" color="secondary" onClick={this.handleClickOpen}>사용하기</Button>
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle onClose={this.handleClose}>경고</DialogTitle>
                     <DialogContent>
