@@ -12,7 +12,7 @@ class Detail extends React.Component {
         console.log(result[2]);
         return (
             <div id="container">
-                <img src={`http://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com/barcode_img/${result[2]}`} alt="barcode_img" style={{ width: "50%", height: "50%"}}></img>
+                <img src={`http://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com/barcode_img/${result[2]}`} alt="barcode_img" style={{ width: "100%", height: "auto"}}></img>
             </div>
         );
     }

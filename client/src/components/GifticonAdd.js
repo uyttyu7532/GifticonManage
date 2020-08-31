@@ -11,7 +11,14 @@ import { DialogActions } from '@material-ui/core';
 const styles = theme => ({
     hidden: {
         display: 'none'
+    },
+    addBtn: {
+        width : '100%',
+    },
+    addDialog: {
+            backgroundColor: '#6D6E70',
     }
+
 });
 
 class GifticonAdd extends React.Component {
@@ -107,18 +114,20 @@ class GifticonAdd extends React.Component {
                 <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
                     추가하기
                 </Button>
-                <Dialog open={this.state.open} onClose={this.handleClose}>
+                <Dialog open={this.state.open} onClose={this.handleClose} className={classes.addDialog} >
                     <DialogTitle>기프티콘 추가</DialogTitle>
-                    <DialogContent>
+                    <DialogContent >
                         <input className={classes.hidden} type="file" accept="image/*" id="raised-button-file" file={this.state.barcode_img} value={this.state.fileName} onChange={this.handleFileChange} />
                         <label htmlFor="raised-button-file">
-                            <Button variant="contained" color="primary" component="span" name="file">
+                            <Button className={classes.addBtn} variant="contained" color="primary" component="span" name="file">
                                 {this.state.fileName === "" ? "기프티콘 이미지 선택" : this.state.fileName}
                             </Button>
                         </label>
                         <br />
-                        <TextField label="이름" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
-                        <TextField label="유효기한" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange} /><br />
+                        <br />
+                        <TextField label="이름 (ex- 스타벅스 아메리카노)" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
+                        <br />
+                        <TextField label="유효기한 (ex- 20190421)" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange}  /><br />
                     </DialogContent>
                     <DialogActions>
                         <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>

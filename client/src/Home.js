@@ -164,23 +164,25 @@ class Home extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
-              <MenuIcon />
-            </IconButton>
             <HashRouter>
               <Link to={{
                 pathname: `/`
               }}>
-                <Typography className={classes.title} variant="h6" noWrap>
-                  기프티콘 관리
-          </Typography>
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="open drawer"
+                >
+                  <MenuIcon />
+                </IconButton>
               </Link>
             </HashRouter>
+
+            <Typography className={classes.title} variant="h6" noWrap>
+              기프티콘 관리
+          </Typography>
+
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -203,7 +205,7 @@ class Home extends Component {
           <GifticonAdd stateRefresh={this.stateRefresh} />
         </div>
         <Paper>
-          <Table  className={classes.table}>
+          <Table className={classes.table}>
             <TableHead >
               <TableRow>
                 {cellList.map(c => {
@@ -215,7 +217,7 @@ class Home extends Component {
               {this.state.gifticons ?
                 filteredComponenets(this.state.gifticons) :
                 <TableRow>
-                  <TableCell  colSpan="6" align="center">
+                  <TableCell colSpan="6" align="center">
                     <CircularProgress className={classes.progress} variant="determinate" value={this.state.completed} />
                   </TableCell>
                 </TableRow>
