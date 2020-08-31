@@ -12,11 +12,35 @@ const styles = theme => ({
     hidden: {
         display: 'none'
     },
-    addBtn: {
-        width : '100%',
+    addImgBtn: {
+        width: '100%',
+        padding: '20px'
     },
     addDialog: {
-            backgroundColor: '#6D6E70',
+        backgroundColor: '#(99)778899',
+    },
+    addDialogContent: {
+        margin: '10px',
+        maxWidth: '100%',
+        width : '500px',
+        maxHeight:' 100%',
+        height : '250px',
+    },
+    addName:{  
+        width: '100%',
+    },
+    addEXPDate:{
+        width: '100%',
+    },
+    addBtn:{
+        padding: '10px'
+    },
+    closeBtn:{
+        padding: '10px'
+    },
+    addGifticonBtn:{
+       width: '200px',
+       height: '50px'
     }
 
 });
@@ -111,27 +135,27 @@ class GifticonAdd extends React.Component {
         const { classes } = this.props;
         return (
             <div>
-                <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
+                <Button className={classes.addGifticonBtn} variant="contained" color="primary" onClick={this.handleClickOpen}>
                     추가하기
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} className={classes.addDialog} >
                     <DialogTitle>기프티콘 추가</DialogTitle>
-                    <DialogContent >
+                    <DialogContent className={classes.addDialogContent} >
                         <input className={classes.hidden} type="file" accept="image/*" id="raised-button-file" file={this.state.barcode_img} value={this.state.fileName} onChange={this.handleFileChange} />
                         <label htmlFor="raised-button-file">
-                            <Button className={classes.addBtn} variant="contained" color="primary" component="span" name="file">
+                            <Button className={classes.addImgBtn} variant="contained" color="primary" component="span" name="file">
                                 {this.state.fileName === "" ? "기프티콘 이미지 선택" : this.state.fileName}
                             </Button>
                         </label>
                         <br />
                         <br />
-                        <TextField label="(ex- 스타벅스 아메리카노)" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
+                        <TextField className={classes.addName} label="이름 (ex- 스타벅스 아메리카노)" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
                         <br />
-                        <TextField label="(ex- 20190421)" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange}  /><br />
+                        <TextField className={classes.addEXPDate} label="유효기간 (ex- 20190421)" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange} /><br />
                     </DialogContent>
                     <DialogActions>
-                        <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>
-                        <Button variant="outlined" color="primary" onClick={this.handleClose}>닫기</Button>
+                        <Button className={classes.addBtn} variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>
+                        <Button className={classes.closeBtn} variant="outlined" color="primary" onClick={this.handleClose}>닫기</Button>
                     </DialogActions>
                 </Dialog>
             </div>
