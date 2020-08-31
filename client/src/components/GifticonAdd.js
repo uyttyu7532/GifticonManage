@@ -22,15 +22,16 @@ const styles = theme => ({
     addDialogContent: {
         margin: '10px',
         maxWidth: '100%',
-        width: '500px',
+        width: '400px',
         maxHeight: ' 100%',
-        height: '250px',
+        height: '400px',
     },
     addName: {
         width: '100%',
     },
     addEXPDate: {
         width: '100%',
+        display: 'flex',
     },
     addBtn: {
         padding: '10px'
@@ -46,6 +47,8 @@ const styles = theme => ({
 });
 
 class GifticonAdd extends React.Component {
+
+
 
     constructor(props) {
         super(props);
@@ -68,7 +71,7 @@ class GifticonAdd extends React.Component {
             .then((response) => {
                 console.log(response.data);
                 // App.js의 stateRefresg()호출해서
-                // 부모 컴포넌트(App)의 state값 갱신 시켜준다.
+                // 부모 컴포넌트(Home)의 state값 갱신 시켜준다.
                 this.props.stateRefresh();
             })
         this.setState({
@@ -133,13 +136,14 @@ class GifticonAdd extends React.Component {
 
     render() {
         const { classes } = this.props;
+
         return (
             <div>
                 <Button className={classes.addGifticonBtn} variant="contained" color="primary" onClick={this.handleClickOpen}>
                     추가하기
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} className={classes.addDialog} >
-                    <DialogTitle>기프티콘 추가</DialogTitle>
+                    <DialogTitle><h3>기프티콘 추가</h3></DialogTitle>
                     <DialogContent className={classes.addDialogContent} >
                         <input className={classes.hidden} type="file" accept="image/*" id="raised-button-file" file={this.state.barcode_img} value={this.state.fileName} onChange={this.handleFileChange} />
                         <label htmlFor="raised-button-file">
@@ -149,9 +153,11 @@ class GifticonAdd extends React.Component {
                         </label>
                         <br />
                         <br />
-                        <TextField className={classes.addName} label="이름 (ex- 스타벅스 아메리카노)" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
+                        <h3>제품명</h3>
+                        <TextField className={classes.addName} label="ex) 스타벅스 아메리카노" type="text" name="name" value={this.state.name} onChange={this.handleValueChange}/><br />
                         <br />
-                        <TextField className={classes.addEXPDate} label="유효기간 (ex- 20190421)" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange} /><br />
+                        <h3>유효기간</h3>
+                        <TextField className={classes.addEXPDate} type="date" name="exp_date" value={this.exp_date} onChange={this.handleValueChange} />
                     </DialogContent>
                     <DialogActions>
                         <Button className={classes.addBtn} variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>

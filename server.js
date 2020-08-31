@@ -30,7 +30,7 @@ const upload = multer({ dest: './upload' })
 
 app.get('/api/gifticons', (req, res) => {
   connection.query(
-    "SELECT * FROM GIFTICON ORDER BY CASE WHEN used IN ('미사용') THEN 0 ELSE 1 END",
+    "SELECT * FROM GIFTICON ORDER BY (CASE WHEN used IN ('미사용') THEN 0 ELSE 1 END) , exp_date;",
     (err, rows, fields) => {
       res.send(rows);
     }
