@@ -90,9 +90,6 @@ const styles = theme => ({
 })
 
 
-
-
-
 class Home extends Component {
 
   constructor(props) {

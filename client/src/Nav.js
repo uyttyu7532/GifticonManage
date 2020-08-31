@@ -61,49 +61,32 @@ const styles = theme => ({
 })
 
 class Nav extends React.Component {
-  render() {
-    const { classes } = this.props;
-    return(
-        <AppBar position = "static" >
-            <Toolbar>
-                <HashRouter>
-                    <Link to={{
-                        pathname: `/`
-                    }}>
-                        <IconButton
-                            edge="start"
-                            className={classes.menuButton}
-                            color="inherit"
-                            aria-label="open drawer"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                    </Link>
-                </HashRouter>
+    render() {
+        const { classes } = this.props;
+        return (
+            <AppBar position="static" >
+                <Toolbar>
+                    <HashRouter>
+                        <Link to={{
+                            pathname: `/`
+                        }}>
+                            <IconButton
+                                edge="start"
+                                className={classes.menuButton}
+                                color="inherit"
+                                aria-label="open drawer"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Link>
+                    </HashRouter>
 
-                <Typography className={classes.title} variant="h6" noWrap>
-                    기프티콘 관리
+                    <Typography className={classes.title} variant="h6" noWrap>
+                        기프티콘 관리
           </Typography>
-{/* 
-                <div className={classes.search}>
-                    <div className={classes.searchIcon}>
-                        <SearchIcon />
-                    </div>
-                    <InputBase
-                        placeholder="Search…"
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                        name="searchKeyword"
-                        value={this.state.searchKeyword}
-                        onChange={this.handleValueChange}
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                </div> */}
-            </Toolbar>
-        </AppBar>
-    )
-}
+                </Toolbar>
+            </AppBar>
+        )
+    }
 }
 export default withStyles(styles)(Nav);

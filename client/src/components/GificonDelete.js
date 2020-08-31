@@ -9,22 +9,22 @@ import { withStyles } from '@material-ui/core/styles';
 
 
 const styles = theme => ({
-    useGifticonBtn:{
+    useGifticonBtn: {
         width: '200px',
         height: '50px'
     },
-    useGifticonDialog:{
+    useGifticonDialog: {
         margin: '10px',
         maxWidth: '100%',
-        width : '500px',
-        maxHeight:' 100%',
-        height : '60px',
+        width: '500px',
+        maxHeight: ' 100%',
+        height: '60px',
     },
-    YesBtn:{
+    YesBtn: {
         width: '200px',
         height: '50px'
     },
-    NoBtn:{
+    NoBtn: {
         width: '200px',
         height: '50px'
     }

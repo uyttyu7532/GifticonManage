@@ -22,25 +22,25 @@ const styles = theme => ({
     addDialogContent: {
         margin: '10px',
         maxWidth: '100%',
-        width : '500px',
-        maxHeight:' 100%',
-        height : '250px',
+        width: '500px',
+        maxHeight: ' 100%',
+        height: '250px',
     },
-    addName:{  
+    addName: {
         width: '100%',
     },
-    addEXPDate:{
+    addEXPDate: {
         width: '100%',
     },
-    addBtn:{
+    addBtn: {
         padding: '10px'
     },
-    closeBtn:{
+    closeBtn: {
         padding: '10px'
     },
-    addGifticonBtn:{
-       width: '200px',
-       height: '50px'
+    addGifticonBtn: {
+        width: '200px',
+        height: '50px'
     }
 
 });
