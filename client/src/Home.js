@@ -39,9 +39,9 @@ const styles = theme => ({
   progress: {
     margin: 'theme.spacing(2)'
   },
-  // menuButton: {
-  //   marginRight: theme.spacing(2),
-  // },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
   title: {
     flexGrow: 1,
     display: 'none',
