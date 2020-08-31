@@ -25,7 +25,6 @@ const styles = theme => ({
   root: {
     width: '100%',
     minWidth: 1080
-
   },
   menu: {
     marginTop: 15,
@@ -41,6 +40,7 @@ const styles = theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: 'white'
   },
   title: {
     flexGrow: 1,

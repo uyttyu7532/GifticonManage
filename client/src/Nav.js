@@ -11,6 +11,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 const styles = theme => ({
     menuButton: {
         marginRight: theme.spacing(2),
+        color: 'white'
     },
     title: {
         flexGrow: 1,

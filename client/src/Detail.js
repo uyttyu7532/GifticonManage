@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from './Nav';
 
+
 class Detail extends React.Component {
 
     constructor(props) {
@@ -10,7 +11,7 @@ class Detail extends React.Component {
 
     render() {
         var result = this.props.location.search.split('/')
-        console.log(result[2]);
+        console.log(this.props);
         return (
             <div>
             <Nav />
