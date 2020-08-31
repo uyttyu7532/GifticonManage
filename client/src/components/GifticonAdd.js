@@ -8,10 +8,6 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import { DialogActions } from '@material-ui/core';
 
-const exp_year='';
-var exp_month='';
-var exp_day='';
-
 const styles = theme => ({
     hidden: {
         display: 'none'
@@ -26,25 +22,15 @@ const styles = theme => ({
     addDialogContent: {
         margin: '10px',
         maxWidth: '100%',
-        width: '400px',
+        width: '500px',
         maxHeight: ' 100%',
-        height: '400px',
+        height: '250px',
     },
     addName: {
         width: '100%',
     },
     addEXPDate: {
         width: '100%',
-        display: 'flex',
-    },
-    addEXPYear:{
-
-    },
-    addEXPMon:{
-
-    },
-    addEXPDay:{
-
     },
     addBtn: {
         padding: '10px'
@@ -60,8 +46,6 @@ const styles = theme => ({
 });
 
 class GifticonAdd extends React.Component {
-
-
 
     constructor(props) {
         super(props);
@@ -84,7 +68,7 @@ class GifticonAdd extends React.Component {
             .then((response) => {
                 console.log(response.data);
                 // App.js의 stateRefresg()호출해서
-                // 부모 컴포넌트(Home)의 state값 갱신 시켜준다.
+                // 부모 컴포넌트(App)의 state값 갱신 시켜준다.
                 this.props.stateRefresh();
             })
         this.setState({
@@ -119,7 +103,7 @@ class GifticonAdd extends React.Component {
         const formData = new FormData();
         formData.append('barcode_img', this.state.barcode_img);
         formData.append('name', this.state.name);
-        formData.append('exp_date', this.exp_year+"-"+this.exp_month+"-"+this.exp_day);
+        formData.append('exp_date', this.state.exp_date);
         formData.append('used', this.state.used);
         // 파일이 포함된 데이터를 서버로 전송 => header추가 
         const config = {
@@ -149,14 +133,13 @@ class GifticonAdd extends React.Component {
 
     render() {
         const { classes } = this.props;
-
         return (
             <div>
                 <Button className={classes.addGifticonBtn} variant="contained" color="primary" onClick={this.handleClickOpen}>
                     추가하기
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} className={classes.addDialog} >
-                    <DialogTitle><h3>기프티콘 추가</h3></DialogTitle>
+                    <DialogTitle>기프티콘 추가</DialogTitle>
                     <DialogContent className={classes.addDialogContent} >
                         <input className={classes.hidden} type="file" accept="image/*" id="raised-button-file" file={this.state.barcode_img} value={this.state.fileName} onChange={this.handleFileChange} />
                         <label htmlFor="raised-button-file">
@@ -166,16 +149,9 @@ class GifticonAdd extends React.Component {
                         </label>
                         <br />
                         <br />
-                        <h3>제품명</h3>
-                        <TextField className={classes.addName} label="(ex - 스타벅스 아메리카노)" type="text" name="name" value={this.state.name} onChange={this.handleValueChange}/><br />
+                        <TextField className={classes.addName} label="이름 (ex- 스타벅스 아메리카노)" type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
                         <br />
-                        <h3>유효기간 ex) 20년 06월 03일</h3>
-                        <div className={classes.addEXPDate}>
-                        <TextField className={classes.addEXPYear} label="연도 (yy)" type="number" name="exp_year" value={this.exp_year} onChange={this.handleValueChange} />
-                        <TextField className={classes.addEXPMon} label="월 (mm)" type="number" name="exp_month" value={this.exp_month} onChange={this.handleValueChange} />
-                        <TextField className={classes.addEXPDay} label="일 (dd)" type="number" name="exp_day" value={this.exp_day} onChange={this.handleValueChange} /><br />
-
-                        </div>
+                        <TextField className={classes.addEXPDate} label="유효기간 (ex- 20190421)" type="text" name="exp_date" value={this.state.exp_date} onChange={this.handleValueChange} /><br />
                     </DialogContent>
                     <DialogActions>
                         <Button className={classes.addBtn} variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>
