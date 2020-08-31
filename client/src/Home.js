@@ -32,6 +32,9 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center'
   },
+  table:{
+    width: '100%'
+  },
   TableHead: {
     fontSize: '1.0rem'
   },
@@ -213,7 +216,7 @@ class Home extends Component {
               {this.state.gifticons ?
                 filteredComponenets(this.state.gifticons) :
                 <TableRow>
-                  <TableCell colSpan="6" align="center">
+                  <TableCell colSpan="5" align="center">
                     <CircularProgress className={classes.progress} variant="determinate" value={this.state.completed} />
                   </TableCell>
                 </TableRow>

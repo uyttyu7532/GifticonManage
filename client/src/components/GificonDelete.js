@@ -10,7 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     useGifticonBtn: {
-        width: '200px',
+        width: '100px',
         height: '50px'
     },
     useGifticonDialog: {

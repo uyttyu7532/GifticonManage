@@ -48,8 +48,6 @@ const styles = theme => ({
 
 class GifticonAdd extends React.Component {
 
-
-
     constructor(props) {
         super(props);
         this.state = {
@@ -115,6 +113,7 @@ class GifticonAdd extends React.Component {
             }
         }
         return post(url, formData, config);
+        
     }
 
     handleClickOpen = () => {
