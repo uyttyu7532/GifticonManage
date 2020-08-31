@@ -2,21 +2,31 @@ import React from "react";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import GifticonDelete from "./GificonDelete";
+import { Link, HashRouter } from "react-router-dom";
 
-class Gifticon extends React.Component {
-    render() {
-        return (
-            <TableRow>
-                {/* <TableCell>{this.props.id}</TableCell> */}
-                <TableCell><img src={`http://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com${this.props.barcode_img}`} alt="barcode_img" style={{ width: 64, height: 64 }}></img></TableCell>
-                <TableCell>{this.props.name}</TableCell>
-                <TableCell>{this.props.exp_date}</TableCell>
-                <TableCell>{this.props.used}</TableCell>
-                <TableCell><GifticonDelete stateRefresh={this.props.stateRefresh} id={this.props.id} /></TableCell>
-            </TableRow>
-
-        )
-    }
+function Gifticon({ id, barcode_img, name, exp_date, used, stateRefresh }) {
+    return (
+        <TableRow>
+            <TableCell>
+                <HashRouter>
+                    <Link
+                        to={{
+                            pathname:  `/barcode/${id}`,
+                            state: {
+                                barcode_img: `${barcode_img}`
+                            },
+                            search:`${barcode_img}`
+                        }}>
+                        <img src={`http://ec2-15-164-50-1.ap-northeast-2.compute.amazonaws.com${barcode_img}`} alt="barcode_img" style={{ width: 64, height: 64 }}></img>
+                    </Link>
+                </HashRouter>
+            </TableCell>
+            <TableCell>{name}</TableCell>
+            <TableCell>{exp_date}</TableCell>
+            <TableCell>{used}</TableCell>
+            <TableCell><GifticonDelete stateRefresh={stateRefresh} id={id} /></TableCell>
+        </TableRow>
+    )
 }
 
 
