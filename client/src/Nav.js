@@ -3,17 +3,19 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
 import { Link, HashRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const styles = theme => ({
-    menuButton: {
+    homeButton: {
         marginRight: theme.spacing(2),
         color: 'white'
     },
     title: {
+        marginTop: 25,
+        marginBottom: 25,
         flexGrow: 1,
         display: 'none',
         [theme.breakpoints.up('sm')]: {
@@ -72,11 +74,11 @@ class Nav extends React.Component {
                         }}>
                             <IconButton
                                 edge="start"
-                                className={classes.menuButton}
+                                className={classes.homeButton}
                                 color="inherit"
-                                aria-label="open drawer"
+                                aria-label="home"
                             >
-                                <MenuIcon />
+                                <HomeIcon />
                             </IconButton>
                         </Link>
                     </HashRouter>

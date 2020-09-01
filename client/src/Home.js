@@ -32,7 +32,7 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center'
   },
-  table:{
+  table: {
     width: '100%'
   },
   TableHead: {
@@ -41,7 +41,7 @@ const styles = theme => ({
   progress: {
     margin: 'theme.spacing(2)'
   },
-  menuButton: {
+  homeButton: {
     marginRight: theme.spacing(2),
     color: 'white'
   },
@@ -171,9 +171,9 @@ class Home extends Component {
               }}>
                 <IconButton
                   edge="start"
-                  className={classes.menuButton}
+                  className={classes.homeButton}
                   color="inherit"
-                  aria-label="open drawer"
+                  aria-label="home"
                 >
                   <HomeIcon />
                 </IconButton>
@@ -188,7 +188,7 @@ class Home extends Component {
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
-              <InputBase 
+              <InputBase
                 placeholder="Search…"
                 classes={{
                   root: classes.inputRoot,
