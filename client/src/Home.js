@@ -17,14 +17,14 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 
 
 const styles = theme => ({
   root: {
     width: '100%',
-    minWidth: 1080
+    // minWidth: 980,
   },
   menu: {
     marginTop: 15,
@@ -36,7 +36,7 @@ const styles = theme => ({
     width: '100%'
   },
   TableHead: {
-    fontSize: '1.0rem'
+
   },
   progress: {
     margin: 'theme.spacing(2)'
@@ -46,6 +46,8 @@ const styles = theme => ({
     color: 'white'
   },
   title: {
+    marginTop: 25,
+    marginBottom: 25,
     flexGrow: 1,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -173,7 +175,7 @@ class Home extends Component {
                   color="inherit"
                   aria-label="open drawer"
                 >
-                  <MenuIcon />
+                  <HomeIcon />
                 </IconButton>
               </Link>
             </HashRouter>
@@ -186,7 +188,7 @@ class Home extends Component {
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
-              <InputBase
+              <InputBase 
                 placeholder="Search…"
                 classes={{
                   root: classes.inputRoot,

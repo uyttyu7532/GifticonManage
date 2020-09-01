@@ -65,7 +65,7 @@ class GifticonDelete extends React.Component {
         const { classes } = this.props;
         return (
             <div>
-                <Button className={classes.useGifticonBtn} variant="contained" color="secondary" onClick={this.handleClickOpen}>사용</Button>
+                <Button  className={classes.useGifticonBtn} variant="contained" color="secondary" onClick={this.handleClickOpen}>사용</Button>
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle onClose={this.handleClose}>경고</DialogTitle>
                     <DialogContent className={classes.useGifticonDialog}>
