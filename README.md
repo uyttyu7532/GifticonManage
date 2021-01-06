@@ -13,5 +13,5 @@
 <img src = "https://user-images.githubusercontent.com/48347326/103774182-818c9c80-506f-11eb-9780-8e16815a099e.png" height="400px">
 
 ### 모바일
-<img src = "https://user-images.githubusercontent.com/48347326/103778902-4a6db980-5076-11eb-8fcf-66af72716f4d.png" height="400px">
+<img src = "https://user-images.githubusercontent.com/48347326/103779097-9ae51700-5076-11eb-9404-42028f542594.png" height="400px">
 
