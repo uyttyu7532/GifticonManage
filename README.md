@@ -1,4 +1,6 @@
-# 기프티콘 관리
+# 기프티콘 관리 (GifticonManage)
+
+- ## React + Node.js
 
 #### 메인 페이지 
 <img src = "https://user-images.githubusercontent.com/48347326/103777998-ff9f7200-5074-11eb-8aad-8d3ca6ad0365.png" height="400px">
